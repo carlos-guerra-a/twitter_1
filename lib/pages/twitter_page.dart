@@ -24,12 +24,14 @@ Widget pagina = HomePage();
       body: pagina,
 
       bottomNavigationBar: BottomNavigationBar(
+      backgroundColor: Colors.black,
       type: BottomNavigationBarType.shifting,  
       items: 
       
       [
         BottomNavigationBarItem(
           backgroundColor: Color(0xFF14171A),
+          
           label: '',
           icon: Icon(MdiIcons.home, size: 30,)),
 
