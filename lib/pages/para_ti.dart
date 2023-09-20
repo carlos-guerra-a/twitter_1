@@ -23,6 +23,7 @@ class ParaTiPage extends StatelessWidget {
               nombre: tuit['nombre'].toString() ,
               arroba: tuit['arroba'].toString() ,
               hora: tuit['hora'].toString() ,
+              imagen: tuit['imagen'].toString() ,
             );
 
           } ).toList(),
