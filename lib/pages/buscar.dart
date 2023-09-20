@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:twitter_1/pages/mensajes.dart';
+import 'package:twitter_1/widgets/tt_widget.dart';
+import '../constants/trending.dart';
 
 
 class BuscarPage extends StatefulWidget {
@@ -23,10 +25,11 @@ class _BuscarPageState extends State<BuscarPage> {
         backgroundColor: Color(0xFF14171A),
           leading: 
             Container(
-              margin: EdgeInsets.all(10),
-              height: 5,
+              margin: EdgeInsets.all(12),
+              height: 32,
+              width: 32,
               padding: EdgeInsets.all(0),
-              decoration: BoxDecoration(  shape: BoxShape.circle, image: DecorationImage( image: AssetImage('assets/images/Perfil1.jpeg')),  ),
+              decoration: BoxDecoration(shape: BoxShape.circle, image: DecorationImage( image: AssetImage('assets/images/Perfil1.jpeg')),  ),
           
              
               
@@ -45,7 +48,8 @@ class _BuscarPageState extends State<BuscarPage> {
                 children: [
             
                   Container(
-                    margin: EdgeInsets.only(bottom: 5),
+                    padding: EdgeInsets.all(2),
+                    margin: EdgeInsets.only(bottom: 0),
                     width: 280,
                     height: 40,
                     child: SearchAnchor(
@@ -96,7 +100,7 @@ class _BuscarPageState extends State<BuscarPage> {
                                 }),
                   ),
 
-               Icon(MdiIcons.cogOutline, color: Colors.white,)
+               Icon(MdiIcons.cogOutline, color: Colors.white, size: 30,)
 
                 ],
               ),
@@ -108,9 +112,45 @@ class _BuscarPageState extends State<BuscarPage> {
       child: Column(
         children: [
           Divider(thickness: 0.2),
+          Row(children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Text("Tendencias para ti", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),))
+          ],),
 
-          DMPage()
+          //widget de tendencias
 
+         
+            // flex:2,
+          Column(children:
+            trending.map((trend) {
+          
+              return TTWidget(tendencia: trend['tendencia'].toString(), tema: trend['tema'].toString(), posts: trend['posts'].toString(),);
+          
+            }).toList()
+            
+            ),
+          
+
+          //boton mostrar más
+
+         
+            // flex: 1,
+           Expanded(
+             child: Container(
+                padding: EdgeInsets.all(5),
+                // height: 290,
+                // decoration: BoxDecoration(border: Border.all(color: Colors.red)),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Mostrar más", style: TextStyle(color: Color(0xFF1D9BF0), fontSize: 15) ,),
+                  ],
+                ),
+              ),
+           ),
+          
+          
 
         ],
 
