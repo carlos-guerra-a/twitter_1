@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:twitter_1/pages/buscar.dart';
+import 'package:twitter_1/pages/dm.dart';
 import 'package:twitter_1/pages/home.dart';
-import 'package:twitter_1/pages/mensajes.dart';
 import 'package:twitter_1/pages/notificaciones.dart';
 
 class TwitterPage extends StatefulWidget {

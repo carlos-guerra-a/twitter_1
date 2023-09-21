@@ -65,11 +65,7 @@ class _TweetWidgetState extends State<TweetWidget> {
                     width: 35,
                     height: 35,
                     decoration: BoxDecoration(shape: BoxShape.circle ,image: DecorationImage(image: AssetImage('assets/images/${(this.widget.perfil)}'))),
-                    // child: Image(image: AssetImage('assets/images/${(this.perfil)}'))
-
-                  
-                  
-                  
+                
                 ),
               ],
             ),
@@ -77,8 +73,6 @@ class _TweetWidgetState extends State<TweetWidget> {
 
             //tuit
             Container(
-              // decoration: BoxDecoration(border: Border.all(color: Colors.greenAccent)),
-
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -88,16 +82,12 @@ class _TweetWidgetState extends State<TweetWidget> {
                 Container(
             
                   width: 355,
-                  // decoration: BoxDecoration(border: Border.all(color: Colors.red)),
-            
-                  child: Row(
+                    child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     
                     children: [
                     Container(
-                      // width: 333,
-                      // decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
-                      child: Row(
+                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(margin: EdgeInsets.only(right: 10), child: Text(this.widget.nombre!, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),)),
@@ -108,22 +98,15 @@ class _TweetWidgetState extends State<TweetWidget> {
                         ],
                       ),
                     ),
-                      
-                   
-                          Container(child: Icon(MdiIcons.dotsVertical, color: Color(0xFF657786), size: 15, )),
+                        Container(child: Icon(MdiIcons.dotsVertical, color: Color(0xFF657786), size: 15, )),
                         ],
                       ),
                 ),
                   
-            
-                
-            
-            
                 //tuit  
                 Container(
                   padding: EdgeInsets.all(1),
                   width: 350,
-                  // decoration: BoxDecoration(border: Border.all(color: Colors.red)),
                   child: 
                   
                 Text(this.widget.cuerpo, style: TextStyle(color: Colors.white, fontSize: 15), softWrap: true)),
@@ -131,7 +114,6 @@ class _TweetWidgetState extends State<TweetWidget> {
               // imagen del tuit
                 
                 Visibility(
-                
                   visible: isVisible,
                   child: Row(
                     children: [
@@ -149,10 +131,6 @@ class _TweetWidgetState extends State<TweetWidget> {
                     ],
                   ),
                 ),
-                
-                //  Image(image: AssetImage('assets/images/${(this.imagen)}'), width: 350,),
-                
-                
                 
                 //opciones
                 Container(
@@ -179,10 +157,6 @@ class _TweetWidgetState extends State<TweetWidget> {
           ],
         
       )
-
-      ,
-      
-
 
     );
   }

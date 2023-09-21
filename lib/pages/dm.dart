@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-// import 'package:twitter_1/pages/mensajes.dart';
-import 'package:twitter_1/widgets/tt_widget.dart';
-import '../constants/trending.dart';
+import 'package:twitter_1/widgets/dm_widget.dart';
+import '../constants/dms.dart';
 
 
-class BuscarPage extends StatefulWidget {
-  const BuscarPage({super.key});
+
+class DMPage extends StatefulWidget {
+  const DMPage({super.key});
 
   @override
-  State<BuscarPage> createState() => _BuscarPageState();
+  State<DMPage> createState() => _DMPageState();
 }
 
-class _BuscarPageState extends State<BuscarPage> {
-  bool isDark = false;
-
+class _DMPageState extends State<DMPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF14171A),
+      backgroundColor: Color(0xFF14171A),
 
       appBar: AppBar(
         backgroundColor: Color(0xFF14171A),
@@ -31,7 +28,9 @@ class _BuscarPageState extends State<BuscarPage> {
               padding: EdgeInsets.all(0),
               decoration: BoxDecoration(shape: BoxShape.circle, image: DecorationImage( image: AssetImage('assets/images/Perfil1.jpeg')),  ),
           
-         
+             
+              
+              // Image(image: AssetImage('assets/images/Perfil1.jpeg'))
               
             ),
           
@@ -65,7 +64,7 @@ class _BuscarPageState extends State<BuscarPage> {
                     },
                     leading: Container( 
                       margin: EdgeInsets.only(left: 8), 
-                      child: Text("Buscar en Twitter", style: TextStyle(fontSize:  15 ,color: Color(0xFF8899ac)),)),
+                      child: Text("Buscar Mensajes Directos", style: TextStyle(fontSize:  15 ,color: Color(0xFF8899ac)),)),
                     trailing: <Widget>[
                       
                     ],
@@ -94,58 +93,24 @@ class _BuscarPageState extends State<BuscarPage> {
         
       ),
 
-      body: Padding(padding: EdgeInsets.all(3),
-      child: Column(
-        children: [
+      body: Padding(padding: EdgeInsets.all(3), 
+        child: Column(
+          children: [
           Divider(thickness: 0.2),
-          Row(children: [
-            Container(
-              margin: EdgeInsets.only(bottom: 16),
-              padding: EdgeInsets.only(left: 5),
-              child: Text("Tendencias para ti", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),))
-          ],),
-
-          //widget de tendencias
-
-         
-            // flex:2,
-          Column(children:
-            trending.map((trend) {
-          
-              return TTWidget(tendencia: trend['tendencia'].toString(), tema: trend['tema'].toString(), posts: trend['posts'].toString(),);
-          
-            }).toList()
-            
-            ),
-          
-
-          //boton mostrar más
-
-         
-            // flex: 1,
-           Expanded(
-             child: Container(
-                padding: EdgeInsets.all(5),
-                // height: 290,
-                // decoration: BoxDecoration(border: Border.all(color: Colors.red)),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Mostrar más", style: TextStyle(color: Color(0xFF1D9BF0), fontSize: 15) ,),
-                  ],
-                ),
-              ),
-           ),
+          Expanded(
+            child: ListView(children: dms.map((dm) {
           
           
+              return DMWidget(perfil: dm['perfil'].toString(), nombre: dm['nombre'].toString(), arroba: dm['arroba'].toString(), 
+              
+                tiempo: dm['tiempo'].toString(), mensaje: dm['mensaje'].toString());
+          
+            }).toList() ),
+          )
+          ],
+        )),
 
-        ],
 
-
-
-      ),),
-      
-     
     );
   }
 }
